@@ -3,7 +3,7 @@ class InputOutString:
         self.s = ""
 
     def getName(self):
-        self.s=raw_input("What is your name?:")
+        self.s=raw_input("What is your name? Followed by [ENTER]:")
         
 
     def printString(self,name):
