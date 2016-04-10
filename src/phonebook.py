@@ -17,7 +17,7 @@ class Phonebook:
         choice = raw_input("This is your phonebook. Please choose to add a user [enter 1] or see the content [enter 2] or lookup name [enter 3}:")
         print choice
         if int(choice) == 2:
-            self._display_phonebook(self.filename)
+            self.display_phonebook(self.filename)
         elif int(choice) == 1 :
             self.name = raw_input("Enter name:")
             self.phonenr = raw_input("Enter phone number:")
@@ -36,12 +36,11 @@ class Phonebook:
         else:
            print "Wrong input"           
     
-    def _display_phonebook(self,name):
+    def display_phonebook(self,name):
         '''Displays all entries in phonebook'''
         filename = '%s' % name
-        f = open(filename, 'r')
-        print "Your content is:\n%s" %(f.read())
-        f.close() 
+        with open(filename, 'r') as f:
+            print "Your content is:\n%s" %(f.read())
 
     def _does_file_exist(self,file,path):
         datafile=dirtofile + filename
