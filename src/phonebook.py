@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #
 #A simple phonebook using write and get
-#This coding is a bit overdone. No need for a a class really
+#This coding is a bit overdone. No need for a class really
 import os
 
 
