@@ -51,7 +51,6 @@ class Phonebook:
     
     def lookup_name(self, name):
         filename = '%s' % self.filename
-        f = open(filename, 'r')
         with open(filename, 'r') as f:
             for line in f:
                 if name in line:
