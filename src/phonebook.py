@@ -1,6 +1,7 @@
 #!/usr/bin/python
 #
 #A simple phonebook using write and get
+#This coding is a bit overdone. No need for a a class really
 import os
 
 
@@ -12,9 +13,11 @@ class Phonebook:
        self.email=""
        self.dirtofile="/tmp"
        self.filename="phonebook.txt"
+       self.totpath="/tmp/phonebook.txt"
 
     def getinputfromuser(self):
-        choice = raw_input("This is your phonebook. Please choose to add a user [enter 1] or see the content [enter 2] or lookup name [enter 3}:")
+        choice = raw_input("This is your phonebook. Please choose to add a user [enter 1] or see the content [enter 2]\
+        or lookup name [enter 3}:")
         print choice
         if int(choice) == 2:
             self.display_phonebook(self.filename)
@@ -23,13 +26,13 @@ class Phonebook:
             self.phonenr = raw_input("Enter phone number:")
             self.email =  raw_input("Enter email:")
             #Check if file exist or not 
-            if self._does_file_exist(dirtofile,filename):
+            if self._does_file_exist(self.filename,self.dirtofile)=="PASS":
                 #Append to file
-                with open(filename, 'a') as myfile:
-                    myfile.write("Name:%s\tPhone:%s\tEmail:%s" % (self.name, self.phonenr,self.email))
+                with open(self.totpath, 'a') as myfile:
+                    myfile.write("Name:%s\tPhone:%s\tEmail:%s\n" %(self.name, self.phonenr,self.email))
             else:
-                 with open(filename, 'w') as myfile:
-                    myfile.write("Name:%s\tPhone:%s\tEmail:%s" % (self.name, self.phonenr,self.email))
+                 with open(self.totpath, 'w') as myfile:
+                    myfile.write("Name:%s\tPhone:%s\tEmail:%s\n" % (self.name, self.phonenr,self.email))
         elif int(choice) == 3:
              name = raw_input("Enter a name [press enter]:")
              print self.lookup_name(name)
@@ -43,14 +46,15 @@ class Phonebook:
             print "Your content is:\n%s" %(f.read())
 
     def _does_file_exist(self,file,path):
-        datafile=dirtofile + filename
+        datafile=path +"/"+ file
         try:
-            with open(datafile) as f: pass
+            with open(datafile) as f: return "PASS"
         except IOError as e:
             print("Error: %s not found." % datafile)
     
     def lookup_name(self, name):
         filename = '%s' % self.filename
+        f = open(filename, 'r')
         with open(filename, 'r') as f:
             for line in f:
                 if name in line:
