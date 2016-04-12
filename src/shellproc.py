@@ -8,4 +8,4 @@ COM=sys.argv[1]
 
 p = subprocess.Popen(COM, stdout=subprocess.PIPE, shell=True)
 (output, err) = p.communicate()
-print "Result of %s: %s" %(COM,output)
+print "Result of %s is: %s" %(COM,output)
