@@ -41,6 +41,7 @@ xmlstring="""... Lisa Test, 1992/03/07, I like long
 </PARTS>"""
 
 #Clean file to use only xml code otherwise minidom wont work
+#All lines that do not start and end with < and > must go
 l=[]
 
 for line in xmlstring.split('\n'):
