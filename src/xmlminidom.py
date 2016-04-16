@@ -40,13 +40,12 @@ xmlstring="""... Lisa Test, 1992/03/07, I like long
    </PART>
 </PARTS>"""
 
+#Clean file to use only xml code otherwise minidom wont work
 l=[]
 
-#Clean file to use only xml code otherwise minidom wont work
 for line in xmlstring.split('\n'):
-    l.append(line.strip())
-    newxml='\n'.join(l)
-    newxml=re.search(r'<..*>$',newxml)
+    newxml=re.search(r'<..*>$',line)
     if newxml:
-        print newxml.group(0)
-print newxml
+        l.append(line.strip())
+        newxml='\n'.join(l)
+    
