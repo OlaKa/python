@@ -37,7 +37,7 @@ for line in xmlstring.split('\n'):
     if newxml:
         l.append(line.strip())
         newxml='\n'.join(l)
-    
+#Minidom
 dom = xml.dom.minidom.parseString(newxml)
 Topic=dom.getElementsByTagName('PARTS')
 i = 0
