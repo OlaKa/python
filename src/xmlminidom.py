@@ -4,11 +4,10 @@
 #This is a typical use. Used in real life. 
 
 import xml.dom.minidom
-from xml.dom.minidom import Node
 import re
 
 xmlstring="""
-... and listening to slow jazz
+... and listening to slow jazz <---should not be here
 <?xml version="1.0"?>
 <!DOCTYPE PARTS SYSTEM "parts.dtd">
 <?xml-stylesheet type="text/css" href="xmlpartsstyle.css"?>
@@ -20,11 +19,11 @@ xmlstring="""
       <MODEL>P3B-F</MODEL>
       <COST> 123.00</COST>
    </PART>
-foo
+foo <---should not be here
    <PART>
       <ITEM>Video Card</ITEM>
       <MANUFACTURER>ATI</MANUFACTURER>
-bar
+bar  <---should not be here
       <MODEL>All-in-Wonder Pro</MODEL>
       <COST> 160.00</COST>
    </PART>
