@@ -36,7 +36,7 @@ for line in xmlstring.split('\n'):
     newxml=re.search(r'<..*>$',line)
     if newxml:
         l.append(line.strip())
-        newxml='\n'.join(l)
+newxml='\n'.join(l)
 #Minidom
 dom = xml.dom.minidom.parseString(newxml)
 Topic=dom.getElementsByTagName('PARTS')
