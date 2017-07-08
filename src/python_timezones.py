@@ -22,7 +22,7 @@ while True:
         if choice in timezone_list.keys():
             tz_to_display = pytz.timezone(timezone_list[choice])
             world_time = datetime.datetime.now(tz=tz_to_display)
-            print("Time in {} is {} {}".format(timezone_list[choice],world_time.strftime('%A %x %X'),world_time.tzname()))
+            print("Time in {} is {} {}".format(timezone_list[choice], world_time.strftime('%A %x %X'), world_time.tzname()))
             print("Local time is {}".format(datetime.datetime.now().strftime('%A %x %X')))
             print("UTC time is {}".format(datetime.datetime.utcnow().strftime('%A %x %X')))
 
