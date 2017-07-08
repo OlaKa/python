@@ -15,13 +15,14 @@ print("Choose a time zone from the menu below")
 for tz in sorted(timezone_list):
     print(tz,timezone_list[tz])
 choice = input("Enter your choise, enter 0 will quit the program \n")
-if choice == '0':
-    exit
+while True:
+        if choice == '0':
+            exit
 
-if choice in timezone_list.keys():
-    tz_to_display = pytz.timezone(timezone_list[choice])
-    world_time = datetime.datetime.now(tz=tz_to_display)
-    print("Time in {} is {} {}".format(timezone_list[choice],world_time.strftime('%A %x %X'),world_time.tzname()))
-    print("Local time is {}".format(datetime.datetime.now().strftime('%A %x %X')))
-    print("UTC time is {}".format(datetime.datetime.utcnow().strftime('%A %x %X')))
+        if choice in timezone_list.keys():
+            tz_to_display = pytz.timezone(timezone_list[choice])
+            world_time = datetime.datetime.now(tz=tz_to_display)
+            print("Time in {} is {} {}".format(timezone_list[choice],world_time.strftime('%A %x %X'),world_time.tzname()))
+            print("Local time is {}".format(datetime.datetime.now().strftime('%A %x %X')))
+            print("UTC time is {}".format(datetime.datetime.utcnow().strftime('%A %x %X')))
 
