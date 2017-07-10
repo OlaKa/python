@@ -28,10 +28,10 @@ for line in lines[::-1]:
   
 # read from file and remove \n
 
-list = ['Ola','Karlsson','Melania', 'Trump']
+celeb_list = ['Ola','Karlsson','Melania', 'Trump']
 conc_list = []
 with open('names.txt','w') as name_list:
-    for names in list:
+    for names in celeb_list:
         print(names, file=name_list)
 
 with open('names.txt', 'r') as file:
