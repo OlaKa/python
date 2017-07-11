@@ -59,7 +59,8 @@ class Phonebook:
             for line in f:
                 if name in line:
                     return line
-        
-phone = Phonebook()
-phone.getinputfromuser()
+
+if __name__ == '__main__':        
+    phone = Phonebook()
+    phone.getinputfromuser()
 
