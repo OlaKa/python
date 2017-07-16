@@ -22,8 +22,9 @@ def tripleornot(list):
                     if sum == 1000.0:
                         print "Got it! Numbers are: %s,%s,%s" %(i,x,y)
                         return
-        
-list=raw_input("Give me a range to test Pythagorean triplet (lo hi):")
-splist=list.split()
-tripleornot(splist)
+
+if __name__ == __main__:                   
+    list=raw_input("Give me a range to test Pythagorean triplet (lo hi):")
+    splist=list.split()
+    tripleornot(splist)
 
