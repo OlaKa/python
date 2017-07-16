@@ -53,8 +53,8 @@ class Artist:
         album_found.add_song(title)
 
 
-def find_object(name, artist_list):
-    for index in artist_list:
+def find_object(name, object_list):
+    for index in object_list:
         if index.name == name:
             return index
     return None
